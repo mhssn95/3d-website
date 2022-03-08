@@ -4,6 +4,7 @@ import Input from './Input';
 import FromTopCanvas from './canvas/FromTop';
 import FromRightCanvas from './canvas/FromRight';
 import Projection from './canvas/Projection';
+import GithubCorner from "react-github-corner";
 
 function App() {
   let [c1Size, setC1Size] = useState({ width: 0, height: 0 })
@@ -66,6 +67,7 @@ function App() {
 
   return (
     <div className='container'>
+      <GithubCorner href="https://github.com/mhssn95/3d-website" bannerColor={"#64ceaa"} />
       <div className='col1'>
         <p className='title'>From Top</p>
         <div ref={canvas1} className='canvas'>
