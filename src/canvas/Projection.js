@@ -5,7 +5,7 @@ export default function Projection(props) {
     const pov = Math.radians(props.pov / 2)
     const near = props.near
     const obj = props.obj
-    const a = width/height
+    console.log(a)
 
     const canvasRef = useRef(null)
     const draw = ctx => {
@@ -16,9 +16,9 @@ export default function Projection(props) {
         ctx.strokeStyle = "#000000"
         obj.forEach(face => {
             let first = face[0]
-            ctx.moveTo(a* near * first.x / first.z * (1/Math.tan(pov)) + width / 2, a * near * first.y / first.z * (1/Math.tan(pov)) + height / 2)
+            ctx.moveTo((near * first.x / first.z) * (1 / Math.tan(pov)) + width / 2,(near * first.y / first.z) * (1 / Math.tan(pov)) + height / 2)
             face.slice(1).forEach(point => {
-                ctx.lineTo(a*near * point.x / point.z * (1/Math.tan(pov)) + width / 2, a * near * point.y / point.z * (1/Math.tan(pov)) + height / 2)
+                ctx.lineTo((near * point.x / point.z) * (1 / Math.tan(pov)) + width / 2, (near * point.y / point.z) * (1 / Math.tan(pov)) + height / 2)
             })
             ctx.closePath()
             ctx.stroke()
